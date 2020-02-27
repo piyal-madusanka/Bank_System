@@ -327,6 +327,7 @@ public void memberautoId(){
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       NEWACCOUNT obj=new NEWACCOUNT();
         obj.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -347,9 +348,16 @@ public void memberautoId(){
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
  String x = null;
+  if(jRadioButton1.isSelected()){
+          x="female";
+      }else if(jRadioButton2.isSelected()){
+          x="male";
+      }else{
+          x=null;
+      }
      if("".equals(jTextField9.getText()) || "".equals(jTextField13.getText()) ||"".equals(jTextField11.getText()) ||"".equals(jTextField12.getText()) ||"".equals(jTextField14.getText()) 
              ||"".equals(jTextField15.getText())||"".equals(jTextField16.getText())|| x==null  ){
-          JOptionPane.showMessageDialog(null, "fill the all text areas and try again later ");
+          JOptionPane.showMessageDialog(null, "fill the all the requirements and try again later ");
          
      }else{   
      String sql="insert into member (member_id, name, address, nic, dob, monthly_income, telephone,gender,fund) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -363,11 +371,7 @@ public void memberautoId(){
       pst.setString(5, ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText());
       pst.setString(6, jTextField14.getText());
       pst.setString(7, jTextField15.getText());
-      if(jRadioButton1.isSelected()){
-          x="female";
-      }else{
-          x="male";
-      }
+     
        pst.setString(8, x);
         pst.setString(9, jTextField16.getText());
       pst.execute();

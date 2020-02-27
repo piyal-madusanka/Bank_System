@@ -321,9 +321,12 @@ public class Withdraw extends javax.swing.JFrame {
      int balance=Integer.parseInt(jTextField1.getText()); 
      int withdraw=Integer.parseInt(jTextField7.getText());
      int total=balance-withdraw;
+     if(total<=500){
+          JOptionPane.showMessageDialog(null, "insufficent balance");
+     }else{
     jTextField10.setText(Integer.toString(total));
     }//GEN-LAST:event_jButton7ActionPerformed
-
+    }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
            String sql="update account set  deposit=? where acc_number = ?" ;
          

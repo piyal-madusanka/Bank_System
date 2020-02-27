@@ -489,7 +489,10 @@ this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+  if("".equals(jTextField1.getText()) || "".equals(jTextField11.getText()) ){
+          JOptionPane.showMessageDialog(null, "fill all the requirements and try again later ");
+  }else{     
+        
          String sql = "delete from family_member where member_id = ? && family_member_id=?";
          try{
          pst=conn.prepareStatement(sql);
@@ -515,7 +518,11 @@ this.setVisible(false);
          }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
          }
+                  
+  }
+                
          tabledata();
+                  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -579,13 +586,14 @@ this.setVisible(false);
    JOptionPane.showMessageDialog(null, e);    
   }
          }
-         tabledata();
+           tabledata();
+     familymemberautoId();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
      if("".equals(jTextField2.getText()) || "".equals(jTextField3.getText()) ||"".equals(jTextField5.getText()) ||"".equals(jTextField4.getText()) ||"".equals(jTextField7.getText()) 
              ||"".equals(jTextField9.getText())||"".equals(jTextField8.getText())){
-          JOptionPane.showMessageDialog(null, "fill the all text areas and try again later ");
+          JOptionPane.showMessageDialog(null, "fill all the requirements and try again later ");
         
        }else{
         
@@ -615,7 +623,7 @@ this.setVisible(false);
      jTextField8.setText("");
   
   }catch(Exception e){
-   JOptionPane.showMessageDialog(null, e);    
+   JOptionPane.showMessageDialog(null, "please check the member id and other details");    
   }
      }
    tabledata();
